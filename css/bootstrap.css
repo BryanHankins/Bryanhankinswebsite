@@ -5176,6 +5176,19 @@ button.close {
 .modal-footer .btn-block + .btn-block {
   margin-left: 0;
 }
+@media (max-width: 328px) {
+  .modal-dialog {
+    width: 200px;
+    margin: 10px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+  .modal-sm {
+    width: 200px;
+  }
+}
 @media (min-width: 768px) {
   .modal-dialog {
     width: 600px;
