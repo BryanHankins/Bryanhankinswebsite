@@ -19,6 +19,7 @@ body a {
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
   -ms-transition: 0.5s all;
+  
 }
 
 body h1,
@@ -1929,7 +1930,7 @@ span.border.two:after {
     float: none;
     margin-right: 0;
     min-height: 367px;
-    margin-left: 7em;
+    
   }
 }
 
@@ -2025,7 +2026,7 @@ span.border.two:after {
     float: none;
     margin-right: 0;
     min-height: 390px;
-    margin-left: 7em;
+    
   }
   span.border:after {
     height: 7px;
@@ -2077,11 +2078,11 @@ span.border.two:after {
     margin-top: 1.5em;
   }
   .about-left-grid {
-    width: 80%;
+    width: 70%;
     float: none;
     margin-right: 0;
     min-height: 418px;
-    margin-left: 7em;
+    
   }
 }
 
@@ -2570,8 +2571,16 @@ svg:not(:root) {
   .skill-group-div .right-div {
     padding-right: 15px;
   }
+  .carouselbutton {
+    padding: 2rem;
+
+  }
 }
 .img-fit {
   max-width: 100%;
   height: auto;
 }
+  .carouselbutton {
+    padding: 1rem;
+
+  }
