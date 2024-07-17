@@ -41,7 +41,7 @@ img {
 /*-- header --*/
 
 #home {
-  background: url(../images/bg-code.jpg) no-repeat center top;
+  background: black;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
