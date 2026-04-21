@@ -1562,7 +1562,9 @@
         </div>
       </div>
 
-      <form class="contact-form" action="#" method="post">
+      <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <!-- Spam protection honeypot (hidden) -->
+        <input type="hidden" name="bot-field">
         <div class="form-row">
           <div class="form-field">
             <label class="form-label" for="name">Name</label>
@@ -1616,6 +1618,46 @@
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
     });
   });
+
+  // Contact form — Netlify Forms AJAX submit
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const submitBtn = contactForm.querySelector('.form-submit');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const original = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      const body = new URLSearchParams(new FormData(contactForm)).toString();
+
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body
+        });
+
+        if (res.ok) {
+          submitBtn.textContent = '✓ Message Sent!';
+          submitBtn.style.background = 'var(--accent2)';
+          contactForm.reset();
+        } else {
+          throw new Error('Non-OK response');
+        }
+      } catch {
+        submitBtn.textContent = 'Error — Try Again';
+        submitBtn.style.background = 'var(--accent3)';
+        submitBtn.disabled = false;
+        setTimeout(() => {
+          submitBtn.textContent = original;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+        }, 3000);
+      }
+    });
+  }
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
